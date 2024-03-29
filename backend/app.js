@@ -10,7 +10,9 @@ const PORT = process.env.PORT;
 
 //middlewares
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: "https://finance-tracker-mern-449s.vercel.app"
+}));
 
 //routes
 readdirSync("./routes").map((route) =>
