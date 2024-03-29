@@ -27,6 +27,11 @@ app.use(cors({
   allowedHeaders: ["Content-Type", "Authorization"], // Add the headers you want to allow
 }));
 
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something went wrong!');
+});
+
 //routes
 readdirSync("./routes").map((route) =>
   app.use("/api/v1", require("./routes/" + route))
