@@ -10,8 +10,15 @@ const PORT = process.env.PORT;
 
 //middlewares
 app.use(express.json());
-app.use(cors({
+/*app.use(cors({
   origin: "https://finance-tracker-mern-449s.vercel.app"
+}));*/
+
+// Configure CORS
+app.use(cors({
+  origin: "*", // Update this to the origin(s) you want to allow
+  methods: ["GET", "POST", "PUT", "DELETE"], // Add the HTTP methods you want to allow
+  allowedHeaders: ["Content-Type", "Authorization"], // Add the headers you want to allow
 }));
 
 //routes
