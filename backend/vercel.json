@@ -1,11 +1,15 @@
 {
     "version": 2,
-    "name": "finance-tracker",
     "builds": [
-       { "src": "app.js", "use": "@vercel/node" }
+        {
+            "src": "./app.js",
+            "use": "@vercel/node"
+        }
     ],
     "routes": [
-        { "src": "/api/v1/(.*)", "dest": "app.js" },
-       { "src": "/(.*)", "dest": "/app.js" }
+        {
+            "src": "/(.*)",
+            "dest": "/"
+        }
     ]
- }
+}
