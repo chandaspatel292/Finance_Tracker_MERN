@@ -43,5 +43,5 @@ const server = () => {
     console.log("listening to port:", PORT);
   });
 };
-console.log(server)
+
 server();
