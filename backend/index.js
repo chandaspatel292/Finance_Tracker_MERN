@@ -42,8 +42,6 @@ app.use((err, req, res, next) => {
 routeFiles.map((route) =>
   app.use("/api/v1", require("./routes/" + route))
 );*/
-
-
 // routes
 const routeFiles = readdirSync("./routes");
 routeFiles.map((route) =>
