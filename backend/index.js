@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const cors = require("cors");
 const { db } = require("./db/db");
@@ -37,9 +38,16 @@ app.use((err, req, res, next) => {
   app.use("/api/v1", require("./routes/" + route))
 );*/
 
-const routeFiles = readdirSync("./routes");
+/*const routeFiles = readdirSync("./routes");
 routeFiles.map((route) =>
   app.use("/api/v1", require("./routes/" + route))
+);*/
+
+
+// routes
+const routeFiles = readdirSync("./routes");
+routeFiles.map((route) =>
+  app.use("/api/v1", require(path.join(__dirname, "routes", route)))
 );
 
 const server = () => {
